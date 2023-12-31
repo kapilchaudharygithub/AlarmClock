@@ -1,4 +1,5 @@
 # Alarmify: Your Stylish Alarm Clock
+Live Link: `https://kapilchaudharygithub.github.io/AlarmClock/`
 
 Welcome to **Alarmify**! 🚀 This sleek and feature-rich alarm clock web application combines functionality with a modern design to elevate your wake-up experience.
 
@@ -23,7 +24,7 @@ Welcome to **Alarmify**! 🚀 This sleek and feature-rich alarm clock web applic
 - Ensure you have a modern web browser installed (Chrome, Firefox, Safari).
 
 ### Installation
-1. Clone the repository: `git clone [repository_url]`
+1. Clone the repository: `git clone [https://github.com/kapilchaudharygithub/AlarmClock]`
 2. Open `index.html` in your browser.
 
 ## Project Structure 📁
