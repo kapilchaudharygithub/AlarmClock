@@ -9,8 +9,8 @@ export const Alarm = () => {
     const Alarms = [];
     let isRinging = false;
 
-    // Listen for the 'canplay' event to ensure the audio is ready
     ringtone.addEventListener('canplay', () => {
+        console.log("Audio can play");
         setAlarmBtn.addEventListener("click", () => {
             const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
             Alarms.push(time);
@@ -73,13 +73,21 @@ export const Alarm = () => {
     }
 
     function playRingtone() {
-        ringtone.currentTime = 0; // Reset the audio to the beginning
-        ringtone.play();
+        try {
+            ringtone.currentTime = 0;
+            ringtone.play();
+        } catch (error) {
+            console.error("Error playing ringtone:", error.message);
+        }
     }
 
     function stopAlarm() {
-        ringtone.pause();
-        stopAlarmBtn.style.visibility = "hidden";
+        try {
+            ringtone.pause();
+            stopAlarmBtn.style.visibility = "hidden";
+        } catch (error) {
+            console.error("Error stopping alarm:", error.message);
+        }
     }
 
     stopAlarmBtn.addEventListener("click", stopAlarm);
