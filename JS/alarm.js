@@ -1,7 +1,7 @@
 import { selectMenu } from "../script.js";
 
 export const Alarm = () => {
-  const ringtone = new Audio("../audio/Alarm-Ringtone.mp3");
+    const ringtone = new Audio("../audio/Alarm-Ringtone.mp3");
 
     const setAlarmBtn = document.querySelector(".set-Alarm");
     const alarmList = document.querySelector("#alarmList");
@@ -9,12 +9,15 @@ export const Alarm = () => {
     const Alarms = [];
     let isRinging = false;
 
-    setAlarmBtn.addEventListener("click", () => {
-        const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
-        Alarms.push(time);
-        Alarms.sort(); // Sort alarms in increasing order
+    // Listen for the 'canplay' event to ensure the audio is ready
+    ringtone.addEventListener('canplay', () => {
+        setAlarmBtn.addEventListener("click", () => {
+            const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
+            Alarms.push(time);
+            Alarms.sort(); // Sort alarms in increasing order
 
-        updateAlarmList();
+            updateAlarmList();
+        });
     });
 
     function updateAlarmList() {
