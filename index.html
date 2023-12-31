@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALARM</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer type="module" src="script.js"></script>
+
+
+ 
+    
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container flex ">
+            <!-- MAIN -->
+            <div class="main flex">
+                <!-- HEADER -->
+                <div class="header">ALARM CLOCK</div>
+
+
+                <!-- DATE AND THEME BUTTON -->
+                <div class="date">Date: <span class="dt"></span>  <span>           
+                         <button class="theme">Light</button>
+                </span></div>
+
+ 
+                <!-- ANALOG CLOCK -->
+                <div class="analog-clock flex">
+                    <div class="h">
+                        <div class="h-hand"></div>
+                    </div>
+                    <div class="m">
+                        <div class="m-hand"></div>
+                    </div>
+                    <div class="s">
+                        <div class="s-hand"></div>
+                    </div>
+                </div>
+
+                <!-- DIGITAL CLOCK -->
+                <div class="time">Time: <span class="tm"></span></div>
+
+                <!-- SELECT AREA -->
+                 <div class="select-area flex">
+                    <select name="" id="">
+                        <option value="hour" selected hidden disabled>Hour</option>
+                    </select>
+
+                    <select name="" id="">
+                        <option value="minute" selected hidden disabled>Minute</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="ampm" selected hidden disabled>AM/PM</option>
+                    </select>
+                 </div>
+                 <button class="stopAlarm"">Stop Alarm</button>
+
+
+                 <!-- SET ALARM BUTTON -->
+                 <button class="btn set-Alarm">SET ALARM</button>
+                 <h3 id="alarm-h3">ALARMS</h3>
+
+                 <ul id="alarmList"></ul>
+
+                
+            </div>
+            
+
+
+            
+        </div>
+    </div>
+
+
+
+
+   
+
+
+</body>
+</html>
+
