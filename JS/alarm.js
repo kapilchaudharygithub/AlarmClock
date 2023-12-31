@@ -1,7 +1,6 @@
-import { selectMenu } from "../script.js";
+import { selectMenu,ringtone } from "../script.js";
 
 export const Alarm = () => {
-    const ringtone = new Audio("../audio/Alarm-Ringtone.mp3");
 
     const setAlarmBtn = document.querySelector(".set-Alarm");
     const alarmList = document.querySelector("#alarmList");
