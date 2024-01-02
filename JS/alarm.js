@@ -1,6 +1,7 @@
-import { selectMenu,ringtone } from "../script.js";
+import { selectMenu } from "../script.js";
 
 export const Alarm = () => {
+     const ringtone = new Audio("../audio/Alarm-Ringtone.mp3");
 
     const setAlarmBtn = document.querySelector(".set-Alarm");
     const alarmList = document.querySelector("#alarmList");
@@ -8,18 +9,20 @@ export const Alarm = () => {
     const Alarms = [];
     let isRinging = false;
 
-    ringtone.addEventListener('canplay', () => {
-        console.log("Audio can play");
-        setAlarmBtn.addEventListener("click", () => {
-            const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
-            Alarms.push(time);
-            Alarms.sort(); // Sort alarms in increasing order
+    setAlarmBtn.addEventListener("click", () => {
+        const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
+        if(time.includes("hour") || time.includes("minute") || time.includes("ampm")){
+            alert("Please, Select Valide Input");
+        }else{
+        Alarms.push(time);
+        Alarms.sort(); // Sort alarms in increasing order
 
-            updateAlarmList();
-        });
+        updateAlarmList();
+        }
     });
 
     function updateAlarmList() {
+        
         alarmList.innerHTML = Alarms.map((time) => `
             <li>${time} <button class="deleteAlarm">Delete Alarm</button></li>
         `).join('');
@@ -72,21 +75,13 @@ export const Alarm = () => {
     }
 
     function playRingtone() {
-        try {
-            ringtone.currentTime = 0;
-            ringtone.play();
-        } catch (error) {
-            console.error("Error playing ringtone:", error.message);
-        }
+        ringtone.currentTime = 0; // Reset the audio to the beginning
+        ringtone.play();
     }
 
     function stopAlarm() {
-        try {
-            ringtone.pause();
-            stopAlarmBtn.style.visibility = "hidden";
-        } catch (error) {
-            console.error("Error stopping alarm:", error.message);
-        }
+        ringtone.pause();
+        stopAlarmBtn.style.visibility = "hidden";
     }
 
     stopAlarmBtn.addEventListener("click", stopAlarm);
