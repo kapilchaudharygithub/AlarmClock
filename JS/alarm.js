@@ -9,10 +9,14 @@ export const Alarm = () => {
 
     setAlarmBtn.addEventListener("click", () => {
         const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
+       if(time.includes("hour") || time.includes("minute") || time.includes("ampm")){
+            alert("Please, Select Valide Input");
+        }else{
         Alarms.push(time);
         Alarms.sort(); // Sort alarms in increasing order
 
         updateAlarmList();
+        }
     });
 
     function updateAlarmList() {
