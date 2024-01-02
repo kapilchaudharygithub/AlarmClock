@@ -1,8 +1,6 @@
-import { selectMenu } from "../script.js";
+import { selectMenu, ringtone } from "../script.js";
 
 export const Alarm = () => {
-     const ringtone = new Audio("../audio/Alarm-Ringtone.mp3");
-
     const setAlarmBtn = document.querySelector(".set-Alarm");
     const alarmList = document.querySelector("#alarmList");
     const stopAlarmBtn = document.querySelector(".stopAlarm");
@@ -11,18 +9,13 @@ export const Alarm = () => {
 
     setAlarmBtn.addEventListener("click", () => {
         const time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
-        if(time.includes("hour") || time.includes("minute") || time.includes("ampm")){
-            alert("Please, Select Valide Input");
-        }else{
         Alarms.push(time);
         Alarms.sort(); // Sort alarms in increasing order
 
         updateAlarmList();
-        }
     });
 
     function updateAlarmList() {
-        
         alarmList.innerHTML = Alarms.map((time) => `
             <li>${time} <button class="deleteAlarm">Delete Alarm</button></li>
         `).join('');
