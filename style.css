@@ -264,6 +264,9 @@ li {
     .main{
         width: 90vw;
     }
+    .btn:hover::before{
+        transform: scaleX(0);
+    }
 }
 @media (max-width:480px)
 {
